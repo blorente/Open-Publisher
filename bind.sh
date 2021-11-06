@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 format="$1"
 book="$2"
@@ -90,8 +91,8 @@ else
     mkdir -p Books/"$book"
     pandoc --top-level-division=chapter --template=Pandoc/templates/cs-5x8-pdf.latex --pdf-engine=xelatex --pdf-engine-opt=-output-driver="xdvipdfmx -V 3 -z 0" -f markdown+backtick_code_blocks -o Books/"$book"/"$book"-5x8-print.pdf  -A Books/bio.tex _site/*/"$book"-pdf.md
     
-    mkdir -p Books/"$book"
-    pandoc --top-level-division=chapter --template=Pandoc/templates/cs-6x9-pdf.latex --pdf-engine=xelatex --pdf-engine-opt=-output-driver="xdvipdfmx -V 3 -z 0" -f markdown+backtick_code_blocks -o Books/"$book"/"$book"-6x9-print.pdf  -A Books/bio.tex _site/*/"$book"-pdf.md
+    # mkdir -p Books/"$book"
+    # pandoc --top-level-division=chapter --template=Pandoc/templates/cs-6x9-pdf.latex --pdf-engine=xelatex --pdf-engine-opt=-output-driver="xdvipdfmx -V 3 -z 0" -f markdown+backtick_code_blocks -o Books/"$book"/"$book"-6x9-print.pdf  -A Books/bio.tex _site/*/"$book"-pdf.md
 fi
 }
 

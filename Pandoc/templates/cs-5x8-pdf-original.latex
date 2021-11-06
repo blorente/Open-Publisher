@@ -32,13 +32,13 @@
 %% Use this package to enable tables  
 \usepackage{longtable,booktabs}
 
-% %% Hide the toprule
-% \renewcommand{\toprule}{}
+%% Hide the toprule
+\renewcommand{\toprule}{}
 
-% %% Hide the bottomrule
-% \renewcommand{\bottomrule}{}
+%% Hide the bottomrule
+\renewcommand{\bottomrule}{}
 
-% \setlength{\LTpost}{0pt}
+\setlength{\LTpost}{0pt}
 
 %% Set language and hyphenation rules
 \usepackage[english]{babel}
@@ -61,40 +61,40 @@
 % https://gist.github.com/LSinev/74ea05423c9208d6677d
 
 %(mm size * 72)/25.4 = bp size
-% \usepackage{atbegshi}
-% \AtBeginShipout{% %A hook that is executed for every page (after first one)
-%     \special{pdf: put @thispage
-%       <<
-%         /TrimBox [0 0 360 576] %put here other numbers = size of page in bp
-%       >>
-%     }
-% }
-% \special{pdf: put @thispage
-%   <<
-%     /TrimBox [0 0 360 576] %put here other numbers = size of page in bp
-%   >>
-% }
-% \special{pdf:docinfo
-%   <<
-%     /GTS_PDFXVersion (PDF/X-1:2001)
-%     /GTS_PDFXConformance (PDF/X-1a:2001)
-%   >>
-% }
+\usepackage{atbegshi}
+\AtBeginShipout{% %A hook that is executed for every page (after first one)
+    \special{pdf: put @thispage
+      <<
+        /TrimBox [0 0 360 576] %put here other numbers = size of page in bp
+      >>
+    }
+}
+\special{pdf: put @thispage
+  <<
+    /TrimBox [0 0 360 576] %put here other numbers = size of page in bp
+  >>
+}
+\special{pdf:docinfo
+  <<
+    /GTS_PDFXVersion (PDF/X-1:2001)
+    /GTS_PDFXConformance (PDF/X-1a:2001)
+  >>
+}
 
-% \special{pdf:put @catalog
-% <<
-%   /PageMode /UseNone
-%   /OutputIntents [
-%     <<
-%       /Info (none)
-%       /Type /OutputIntent
-%       /S /GTS_PDFX
-%       /OutputConditionIdentifier (Custom)
-%       /RegistryName (http://www.color.org/)
-%     >>
-%   ]
-% >>
-% }%
+\special{pdf:put @catalog
+<<
+  /PageMode /UseNone
+  /OutputIntents [
+    <<
+      /Info (none)
+      /Type /OutputIntent
+      /S /GTS_PDFX
+      /OutputConditionIdentifier (Custom)
+      /RegistryName (http://www.color.org/)
+    >>
+  ]
+>>
+}%
 
 \usepackage{datetime} % for \pdfdate command
 
@@ -152,12 +152,12 @@ $endif$
 {150pt}%top margin
 {25pt}%bottom margin
 
-% % This tells it to style the title format for chapters (or use a style from fncychap, if requested)
-% $if(fancy-chapter)$
-%   \usepackage[$fancy-chapter$]{fncychap}
-% $else$
-%   \titleformat{\chapter}[display]{\bfseries\titlefont}{\Large Chapter \thechapter \normalfont}{0.5mm}{\small}
-% $endif$
+% This tells it to style the title format for chapters (or use a style from fncychap, if requested)
+$if(fancy-chapter)$
+  \usepackage[$fancy-chapter$]{fncychap}
+$else$
+  \titleformat{\chapter}[display]{\bfseries\titlefont}{\Large Chapter \thechapter \normalfont}{0.5mm}{\small}
+$endif$
 
 %%%%%%%%%%%%%%%%%%
 %% This part says to style the titles for "chapters"
@@ -220,7 +220,7 @@ $endif$
 %% Set Main Fonts
 %\setmainfont{Libertinus Serif}
 \setmainfont{EB Garamond}
-%\setmainfont{QTCaslan}
+% \setmainfont{QTCaslan}
 %\setmainfont{Libertinus Serif}
 
 %\setmainfont[
@@ -374,158 +374,159 @@ $endif$
 % End the page
 \clearpage
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Create a copyright page
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % No headers/footers
-% \pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% % Center everything
-%   \begin{center} 
+%% Create a copyright page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% No headers/footers
+\pagestyle{empty}
 
-% % Use Sans font
-%   \sansfont
+% Center everything
+  \begin{center} 
+
+% Use Sans font
+  \sansfont
   
-% % Write the Book copyright page
-%   makeatletter  \small \@title \par \makeatother
+% Write the Book copyright page
+  makeatletter  \small \@title \par \makeatother
     
-% % Write the CC logo, year, and author
-%     Copyright \ccLogo\ \makeatletter \@date \ \@author \makeatother \par
-%     Some rights reserved. \par
+% Write the CC logo, year, and author
+    Copyright \ccLogo\ \makeatletter \@date \ \@author \makeatother \par
+    Some rights reserved. \par
     
-% % Add a vertical space
-%     \vspace{0.3cm}
+% Add a vertical space
+    \vspace{0.3cm}
 
-% % Write what country it was published in
-%     Published in the United States by \par
+% Write what country it was published in
+    Published in the United States by \par
     
-% % Write the publisher name
-%     \publisher \par
+% Write the publisher name
+    \publisher \par
     
-% % Write the website
-%     \website \par
+% Write the website
+    \website \par
     
-% % Add a vertical space
-%     \vspace{0.3cm}
+% Add a vertical space
+    \vspace{0.3cm}
 
-% % Write the specific license name
-%     This book is distributed under a Creative Commons attribution-NonCommercial-Sharealike 4.0 License. \par
+% Write the specific license name
+    This book is distributed under a Creative Commons attribution-NonCommercial-Sharealike 4.0 License. \par
 
-% % Add a vertical space
-%     \vspace{0.3cm}
+% Add a vertical space
+    \vspace{0.3cm}
 
-% % Write the Creative Commons Icons
-%     \ccbyncsa
+% Write the Creative Commons Icons
+    \ccbyncsa
     
-% % Stop centering everything
-%   \end{center}
+% Stop centering everything
+  \end{center}
        
-% % Write license text
-%    \scriptsize
-%    \noindent \sansfont
-%     That means you are free:
-%       \begin{itemize}
-%         \setlength{\itemsep}{0pt}
-%         \setlength{\parskip}{0pt}
-%         \setlength{\parsep}{0pt} 
-%           \item \textbf{To Share} -- copy and redistribute the material in any medium or format.
-%          \item \textbf{To Adapt} -- remix, transform, and build upon the material.
-%       \end{itemize}
-%     The licensor cannot revoke these freedoms as long as you follow the license terms: \par
-%       \begin{itemize}
-%         \setlength{\itemsep}{0pt}
-%         \setlength{\parskip}{0pt}
-%         \setlength{\parsep}{0pt}
-%           \item \textbf{Attribution} -- You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. \par
-%           \item \textbf{NonCommercial} -- You may not use the material for commercial purposes. \par
-%           \item \textbf{Share Alike} -- If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. \par
-%       \end{itemize}
-%     \textbf{No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.}
+% Write license text
+   \scriptsize
+   \noindent \sansfont
+    That means you are free:
+      \begin{itemize}
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt} 
+          \item \textbf{To Share} -- copy and redistribute the material in any medium or format.
+         \item \textbf{To Adapt} -- remix, transform, and build upon the material.
+      \end{itemize}
+    The licensor cannot revoke these freedoms as long as you follow the license terms: \par
+      \begin{itemize}
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+          \item \textbf{Attribution} -- You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. \par
+          \item \textbf{NonCommercial} -- You may not use the material for commercial purposes. \par
+          \item \textbf{Share Alike} -- If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. \par
+      \end{itemize}
+    \textbf{No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.}
     
-% % Add a vertical space
-%     \vspace{.3cm}
+% Add a vertical space
+    \vspace{.3cm}
     
-% % Start centering again
-%     \begin{center}
+% Start centering again
+    \begin{center}
 
-% % Attribute the cover artist
-%       $for(contributors)$$if(contributors.artist)$ Cover Artist: \artist \par$endif$$endfor$
+% Attribute the cover artist
+      $for(contributors)$$if(contributors.artist)$ Cover Artist: \artist \par$endif$$endfor$
       
-% % Attribute the editor
-%       $for(contributors)$$if(contributors.editor)$ Editor: \editor \par$endif$$endfor$
+% Attribute the editor
+      $for(contributors)$$if(contributors.editor)$ Editor: \editor \par$endif$$endfor$
       
-% % Attribute the designer (hey, that's me)
-%       $for(contributors)$$if(contributors.designer)$ Design: \designer \par$endif$$endfor$
+% Attribute the designer (hey, that's me)
+      $for(contributors)$$if(contributors.designer)$ Design: \designer \par$endif$$endfor$
    
-% % Add a vertical space
-%       \vspace{0.3cm}
+% Add a vertical space
+      \vspace{0.3cm}
       
-% % If ISBNs are defined in Yaml front matter then write them here
-%       $if(paperback-isbn)$Paperback ISBN: {$paperback-isbn$} \par $endif$
-%       $if(hardcover-isbn)$Hardcover ISBN: {$hardcover-isbn$}\par $endif$
-%       $if(epub-isbn)$ePub ISBN: {$epub-isbn$} \par $endif$
+% If ISBNs are defined in Yaml front matter then write them here
+      $if(paperback-isbn)$Paperback ISBN: {$paperback-isbn$} \par $endif$
+      $if(hardcover-isbn)$Hardcover ISBN: {$hardcover-isbn$}\par $endif$
+      $if(epub-isbn)$ePub ISBN: {$epub-isbn$} \par $endif$
       
-% % Stop centering
-%     \end{center}
+% Stop centering
+    \end{center}
     
-% % End the page
-% \clearpage
+% End the page
+\clearpage
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Create a dedication page
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% $if(dedication)$
-%     % No headers/footers
-%     \pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Create a dedication page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(dedication)$
+    % No headers/footers
+    \pagestyle{empty}
 
-%     % Center everything
-%       \begin{center}
+    % Center everything
+      \begin{center}
 
-%     % Vertically center
-%     \topskip0pt
-%     \vspace*{\fill}
+    % Vertically center
+    \topskip0pt
+    \vspace*{\fill}
   
-%     % Write the Dedication
-%       \normalfont\normalsize $dedication$ \par
+    % Write the Dedication
+      \normalfont\normalsize $dedication$ \par
 
-%     % Stop centering
-%     \vspace*{\fill}
-%         \end{center}
+    % Stop centering
+    \vspace*{\fill}
+        \end{center}
     
-%     % End the page
-%     \clearpage
-% $endif$
+    % End the page
+    \clearpage
+$endif$
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %% Create a table of contents
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% $if(toc)$
-%     $if(toc-title)$
-%     \renewcommand*\contentsname{$toc-title$}
-%     $endif$
-%     $if(beamer)$
-%     \begin{frame}[allowframebreaks]
-%     $if(toc-title)$
-%       \frametitle{$toc-title$}
-%     $endif$
-%       \tableofcontents[hideallsubsections]
-%     \end{frame}
-%     $else$
-%     {
-%     $if(colorlinks)$
-%     \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
-%     $endif$
-%     \setcounter{tocdepth}{$toc-depth$}
-%     \tableofcontents
-%     }
-%     $endif$
-% $endif$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Create a table of contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$if(toc)$
+    $if(toc-title)$
+    \renewcommand*\contentsname{$toc-title$}
+    $endif$
+    $if(beamer)$
+    \begin{frame}[allowframebreaks]
+    $if(toc-title)$
+      \frametitle{$toc-title$}
+    $endif$
+      \tableofcontents[hideallsubsections]
+    \end{frame}
+    $else$
+    {
+    $if(colorlinks)$
+    \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
+    $endif$
+    \setcounter{tocdepth}{$toc-depth$}
+    \tableofcontents
+    }
+    $endif$
+$endif$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
