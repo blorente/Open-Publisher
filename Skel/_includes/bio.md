@@ -1,6 +1,7 @@
 # About the Author
-Tristan J. Tarwater is a writer of fantasy, comics and RPG bits. Her titles include The Valley of Ten Crescents series, Hen &amp; Chick, Shamsee: A Fistful of Lunars, and Reality Makes the Best Fantasy. She has also worked for both Pelgrane Press and Onyx Path.
 
-Born and raised in NYC, she now considers Portland, OR her home. When she's not making stuff up, she is usually reading a comic book, cooking delicious meals for her Spouse and Small Boss or petting one of her two cats. Her next RPG character will most definitely be an elf.
+Borja Lorente is a Software Engineer with a passion for exploring imaginary worlds. His titles only include this very volume you're holding, but he enjoyed the process so much that he hopes to have another book out soon.
 
-You can find her online at [www.backthatelfup.com](https://www.backthatelfup.com)
+Born in Spain, he now lives in London, UK, with his wonderful girlfriend and his two cats, Ember and Cinder. When he's not making stuff up, he can be found working in developer tooling for one company or another, most recently Twitter and Apple, or playing Dungeons and Dragons with his friends.
+
+You can find him online at [www.blorente.me/books](https://blorente.me/books).
