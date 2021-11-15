@@ -213,15 +213,16 @@ $endif$
 \usepackage{textcase}
 
 %\usepackage{/mnt/c/Users/Borja/github/chrisanthropic/Open-Publisher/libertinus/latex/libertinus}
-\usepackage{ebgaramond}
-%\usepackage{libertine}
+% \usepackage{dejavu}
+\usepackage{libertine}
 \usepackage{fontspec}
 
 %% Set Main Fonts
-%\setmainfont{Libertinus Serif}
-\setmainfont{EB Garamond}
-%\setmainfont{QTCaslan}
-%\setmainfont{Libertinus Serif}
+% TODO: Back to garamond
+% \setmainfont{EB Garamond}
+% \setmainfont{DejaVu Serif}
+\setmainfont{Libertinus Serif}
+
 
 %\setmainfont[
 %  Ligatures=TeX,
