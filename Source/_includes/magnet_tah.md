@@ -6,4 +6,4 @@
 \
 
 
-[![ ](Source/images/TaH-free.jpg)](https://blorente.me/free-books/)
+[![ ](Source/images/Belcroft-Cover-Beta.png)](https://blorente.me/free-books/)
