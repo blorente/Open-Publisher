@@ -8,5 +8,5 @@
 \
 
 
-[![ ](images/belcroft-cover)](https://blorente.me/books-mailing-list/)
+[![ ](images/belcroft-cover-beta.png)](https://blorente.me/books-mailing-list/)
 

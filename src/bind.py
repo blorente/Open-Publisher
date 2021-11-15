@@ -8,6 +8,7 @@ import os
 import shutil
 
 from layouts.epub import EPUB_LAYOUT
+from layouts.paperback import PAPERBACK_LAYOUT
 
 project_dir = Path(__file__).parent.parent
 
@@ -16,9 +17,12 @@ POSSIBLE_FORMATS = ["epub", "paperback"]
 log = logging.getLogger("Binder")
 
 
-def pandoc(cmd, check=True):
+def pandoc(cmd, check=False):
     log.debug(f"Running: pandoc {' '.join(cmd)}")
-    return subprocess.run(["pandoc"] + cmd, check=check, capture_output=True)
+    res = subprocess.run(["pandoc"] + cmd, check=check, capture_output=True)
+    if res.returncode != 0:
+        log.error(f"Pandoc failed: {res}")
+    return res
 
 
 def stitch_document(manuscript: Path, outdir: Path, layout) -> Path:
@@ -28,13 +32,14 @@ def stitch_document(manuscript: Path, outdir: Path, layout) -> Path:
             true_layout.append(manuscript)
         else:
             true_layout.append(item)
-    
+
     stitched = outdir / f"{manuscript.name}.stitched.md"
     content = "\n".join([file.read_text() for file in true_layout])
     stitched.write_text(content)
     log.info(f"Written stiched content to {stitched}")
     log.debug(f"Stitched content: {content}")
     return stitched
+
 
 def compile_epub(manuscript: Path, book_name: str, outdir: Path):
     stitched = stitch_document(manuscript, outdir, EPUB_LAYOUT)
@@ -51,14 +56,27 @@ def compile_epub(manuscript: Path, book_name: str, outdir: Path):
         str(stitched),
     ]
     res = pandoc(cmd)
-    if res.returncode != 0:
-        log.error(f"Pandoc failed: {res}")
-    else:
-        log.info(f"=> Compiled epub at {output}")
+    if res.returncode == 0:
+        log.info(f"=> Compiled with epub at {output}")
 
 
-def compile_paperback(manuscript: Path):
-    log.info("Paperback unimplemented.")
+def compile_paperback(manuscript: Path, book_name: str, outdir: Path):
+    stitched = stitch_document(manuscript, outdir, PAPERBACK_LAYOUT)
+    output = f"{outdir}/{book_name}-paperback.pdf"
+    cmd = [
+        "--top-level-division=chapter",
+        "--template=src/pandoc/templates/cs-5x8-pdf.latex",
+        "--pdf-engine=xelatex",
+        '--pdf-engine-opt=-output-driver="xdvipdfmx -V 3 -z 0"',
+        "-f",
+        "markdown+backtick_code_blocks",
+        "-o",
+        str(output),
+        str(stitched),
+    ]
+    res = pandoc(cmd)
+    if res.returncode == 0:
+        log.info(f"=> Compiled with paperback at {output}")
 
 
 def main(args):
@@ -82,7 +100,7 @@ def main(args):
         compile_epub(book_file, book_name=book_name, outdir=outdir)
 
     if "paperback" in formats:
-        compile_paperback(book_file)
+        compile_paperback(book_file, book_name=book_name, outdir=outdir)
 
 
 def parse_args():
@@ -98,7 +116,7 @@ def parse_args():
         help="Optional template file. Oherwise, default will be applied.",
     )
     parser.add_argument("--out", "-o", type=str, default=f"{project_dir}/.out")
-    parser.add_argument('--log-level', '-l', default=logging.INFO)
+    parser.add_argument("--log-level", "-l", default=logging.INFO, type=int)
     parser.add_argument("book_file", nargs=1, type=str)
     return parser.parse_args()
 
