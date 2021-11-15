@@ -1,0 +1,57 @@
+/************** Styling Notes 
+ * Nook has issues with Margin settings, so we default to padding instead since it works as expected across all devices.
+ * Nook has issues with 'shorthand' margin/padding rules (T R B L) so we use the full version (margin-top, etc) instead.
+ * Other notes will be added as needed
+ */
+
+/* Set our 'sane' defaults */
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, pre, table, th, td, tr { margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; }
+
+/* Make sure all paragraphs are 'justified' */
+p { text-align: justify; }
+
+/* Don't indent the first paragraph of a chapter */
+p+p { text-indent: 1.5em; }
+
+/* Center but don't indent */
+p+p.center { text-indent: 0; text-align: center; }
+
+/* center */
+.center { text-indent: 0; text-align: center; }
+
+/* Center all of our headings */
+h1, h2, h3, h4, h6 { text-align: center; }
+
+h5 { text-align: center; font-weight: normal; font-size: medium; }
+
+/* Indent our lists */
+li { text-align: left; padding-left: 4em; }
+
+/* Add a top margin for good spacing */
+.top-margin { padding-top: 3em; }
+
+/* Remove the numbers from the Pandoc generated ToC */
+ol.toc { list-style-type:none; }
+
+/* Style our Horizontal Rules */
+hr { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
+
+/* Style our 'tables'
+ * this is a dirty hack since we're writing fiction and probably not using tables
+ * but I'm using Pandoc's table markdown syntax to center certain text, like songs */
+table {margin-left: auto; margin-right: auto; margin-top: 10px;}
+
+/* Class for small capping text in a paragraph, such as a lead line */
+.drop-caps
+  {
+  float: left;
+  width: 0.7em;
+  font-size: 200%;
+  line-height: 80%;
+  }
+
+/* Class for small capping text in a paragraph, such as a lead line */
+.small-caps
+  {
+  font-variant: small-caps;
+  }
