@@ -9,7 +9,7 @@ lang: en-US
 date: YYYY-MM-DD
 year: YYYY
 
-cover-image: Source/images/Belcroft-Cover-Beta.jpg
+cover-image: Source/images/Belcroft-Cover-Beta.png
 
 publisher: 
 rights:
@@ -29,7 +29,7 @@ outer-margin:
 
 identifier:
     - scheme: UUID
-      text: [Grab a free Version4 UUID from here: https://www.uuidgenerator.net/version4]
+      text: 53da63d3-615c-4a03-86be-237250ede6c4
       
 contributors:
     - designer: 

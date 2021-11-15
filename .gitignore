@@ -3,7 +3,8 @@
 Gemfile.lock
 *.kate-swp
 .*~
+.jekyll-cache
 
 vendor
 bin
-Books/Example
+_site

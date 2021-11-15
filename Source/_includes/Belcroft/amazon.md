@@ -1,2 +1,2 @@
 {% include Belcroft/chapters.md %}
-{% include amazon_review.md %}
+{% include Belcroft/amazon_review.md %}
