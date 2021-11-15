@@ -6,4 +6,4 @@
 \
 
 
-[![ ](images/belcroft-cover)](https://blorente.me/books/)
+[![ ](images/belcroft-cover)](https://blorente.me/books-mailing-list/)

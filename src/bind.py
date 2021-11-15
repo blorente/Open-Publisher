@@ -5,6 +5,7 @@ import argparse
 import logging
 import subprocess
 import os
+import shutil
 
 from layouts.epub import EPUB_LAYOUT
 
@@ -70,7 +71,7 @@ def main(args):
     outdir = Path(args.out)
     if outdir.exists():
         log.info(f"=> Outdir exists: {outdir}. Removing.")
-        outdir.rmdir()
+        shutil.rmtree(outdir)
     log.info(f"=> Creating outdir: {outdir}.")
     outdir.mkdir(parents=True)
 
