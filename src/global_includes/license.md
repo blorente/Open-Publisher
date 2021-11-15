@@ -3,7 +3,7 @@
 
 
 ##### Copyright Borja Lorente Escobar
-##### Some rights reserved.
+##### All rights reserved.
 \
 
 
