@@ -9,4 +9,4 @@
 
 ##### Published in the United Kingdom by
 ##### Borja Lorente Escobar
-##### [blorente.me](https://blorente.me)
+##### [blorente.me/books](https://blorente.me/books)
