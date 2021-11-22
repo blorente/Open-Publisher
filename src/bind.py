@@ -115,7 +115,7 @@ def parse_args():
         default=None,
         help="Optional template file. Oherwise, default will be applied.",
     )
-    parser.add_argument("--out", "-o", type=str, default=f"{project_dir}/.out")
+    parser.add_argument("--out", "-o", type=str, default=f"{project_dir}/out")
     parser.add_argument("--log-level", "-l", default=logging.INFO, type=int)
     parser.add_argument("book_file", nargs=1, type=str)
     return parser.parse_args()

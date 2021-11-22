@@ -9,6 +9,6 @@ vendor
 bin
 _site
 
-.out
+out
 *.pyc
 books/*
